@@ -8,13 +8,20 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <title>Simple Calculator</title>
         <script>
+
+            function calculate(){
+                let exisitngData =  document.getElementById("outputScreen").value
+
+                    let sum = eval(exisitngData)           
+                    document.getElementById("outputScreen").value = sum
+            }
+
+
             function display(data){
 
                 let exisitngData =  document.getElementById("outputScreen").value
                 let getTheLastCharacter =  exisitngData.charAt(exisitngData.length - 1)
-
                if (exisitngData.charAt(0) == '0') {
-               
                      document.getElementById("outputScreen").value = data
                
                }else{     
@@ -24,9 +31,9 @@
                //     || exisitngData.charAt(exisitngData.length - 1) == "/") {
                // }
                if(getTheLastCharacter == '+' || getTheLastCharacter  == '-'
-                    || getTheLastCharacter == 'x' || getTheLastCharacter == '÷') {
+                    || getTheLastCharacter == 'x' || getTheLastCharacter == '/') {
 
-                       if (data == '+' || data  == '-' || data == 'x' || data == '÷') {
+                       if (data == '+' || data  == '-' || data == 'x' || data == '/') {
                             let data_replace = exisitngData.replace(getTheLastCharacter, data)
                             document.getElementById("outputScreen").value = data_replace
 
@@ -48,6 +55,18 @@
             function clearAC(){
                 document.getElementById("outputScreen").value = 0
             }
+
+
+            function del(){
+
+                let exisitngData =  document.getElementById("outputScreen").value 
+                let strLen = exisitngData.length - 1
+
+                document.getElementById("outputScreen").value  =  exisitngData.substring(0, strLen)
+
+              
+
+            }
             // function outPut1(){
             //     document.getElementById("outputScreen").value = 1
             // }
@@ -65,13 +84,13 @@
                 <div class="col-sm-3"><button class="form-control" onclick="clearAC()">AC</button></div>
                 <div class="col-sm-3"><button class="form-control">+/-</button></div>
                 <div class="col-sm-3"><button class="form-control">%</button></div>
-                <div class="col-sm-3"><button class="form-control" onclick="display('÷')">÷</button></div>
+                <div class="col-sm-3"><button class="form-control" onclick="display('/')">÷</button></div>
             </div>
             <div class="row pt-2">
                 <div class="col-sm-3"><button class="form-control" onclick="display('7')">7</button></div>
                 <div class="col-sm-3"><button class="form-control" onclick="display('8')">8</button></div>
                 <div class="col-sm-3"><button class="form-control" onclick="display('9')">9</button></div>
-                <div class="col-sm-3"><button class="form-control" onclick="display('x')" >x</button></div>
+                <div class="col-sm-3"><button class="form-control" onclick="display('*')" >x</button></div>
             </div>
             <div class="row pt-2">
                 <div class="col-sm-3"><button class="form-control" onclick="display(4)">4</button></div>
@@ -86,10 +105,12 @@
                 <div class="col-sm-3"><button class="form-control"  onclick="display('+')">+</button></div>
             </div>
             <div class="row pt-2">
-                <div class="col-sm-6"><button class="form-control" onclick="display(0)">0</button></div>
+                <div class="col-sm-3"><button class="form-control" onclick="del()"> del </button></div>
+                <div class="col-sm-3"><button class="form-control" onclick="display(0)">0</button></div>
                 <div class="col-sm-3"><button class="form-control" onclick="display('.')">.</button></div>
-                <div class="col-sm-3"><button class="form-control">=</button></div>
+                <div class="col-sm-3"><button class="form-control" onclick="calculate()">=</button></div>
             </div><br>
         </div>
     </body>
 </html>
+
