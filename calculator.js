@@ -51,9 +51,7 @@ function display(char) {
                 document.getElementById('screen').value = str;
             }
         } else {
-            
-                document.getElementById('screen').value += char;
-            
+            document.getElementById('screen').value += char;
         }
     }
 }
