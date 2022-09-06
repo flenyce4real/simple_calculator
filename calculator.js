@@ -29,7 +29,7 @@ function addMinus(char) {
 function display(char) {
     if(document.getElementById('check').value == '1') {
         document.getElementById('check').value = 0
-        document.getElementById('screen').value = 0;
+        clearScreen();
     }
     str = document.getElementById('screen').value;
     lastChar = str.charAt(str.length-1)
@@ -63,7 +63,7 @@ function clearScreen() {
 function del() {
     str = document.getElementById('screen').value;
     if(str.length <= 1) {
-        document.getElementById('screen').value = 0;
+        clearScreen()
     }else {
         document.getElementById('screen').value = str.slice(0, -1);
     }
