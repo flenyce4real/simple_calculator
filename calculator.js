@@ -28,7 +28,6 @@ function addMinus(char) {
 
 function display(char) {
     if(document.getElementById('check').value == '1') {
-        document.getElementById('check').value = 0
         clearScreen();
     }
     str = document.getElementById('screen').value;
@@ -58,6 +57,7 @@ function display(char) {
 
 function clearScreen() {
     document.getElementById('screen').value = 0;
+    document.getElementById('check').value = 0
 }
 
 function del() {
